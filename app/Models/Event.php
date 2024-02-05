@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Event extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        "event_name",
+        "date",
+        "available_tickets",
+    ];
 
     public function tags()
     {

@@ -46,6 +46,20 @@
                             </li>
 
                             <li class="nav-item">
+                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.events.index' ? 'bg-secondary' : '' }}"
+                                    href="{{ route('admin.events.index') }}">
+                                    <i class="fa-regular fa-calendar-check"></i> Eventi
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.events.create' ? 'bg-secondary' : '' }}"
+                                    href="{{ route('admin.events.create') }}">
+                                    <i class="fa-solid fa-plus"></i> Crea Evento
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
                                 <a class="nav-link text-white" href="{{ route('logout') }}"
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <i class="fa-solid fa-sign-out-alt fa-lg fa-fw"></i> {{ __('Logout') }}
