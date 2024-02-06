@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
 
         $this->callWith(UserSeeder::class, compact('num_utenti'));
         $this->callWith(EventSeeder::class, compact('num_eventi', 'num_utenti'));
+        $this->call(TagSeeder::class);
 
         /* $this->call([
             UserSeeder::class,
