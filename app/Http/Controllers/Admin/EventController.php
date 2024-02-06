@@ -101,6 +101,8 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
+        $tags = Tag::all();
+
         return view("admin.events.edit", compact("event", "tags"));
     }
 
@@ -118,8 +120,8 @@ class EventController extends Controller
         $event->update($dati_validati);
 
         if ($request->filled("tags")) {
-            $dati_validati["tags"] = array_filter($dati_validati["tags"]) ? $dati_validati["tags"] : [];  //Livecoding con Luca
-            $event->tags()->sync($dati_validati["tags"]);
+            $data["tags"] = array_filter($data["tags"]) ? $data["tags"] : [];  //Livecoding con Luca
+            $event->tags()->sync($data["tags"]);
         }
 
         return redirect()->route("admin.events.show", $event->id);

@@ -15,8 +15,9 @@
             @endif
         </div>
         <div class="row">
-            <form action="{{ route('admin.events.store') }}" method="POST">
+            <form action="{{ route('admin.events.update', $event->id) }}" method="POST">
                 @csrf
+                @method('PUT')
                 {{-- title description thumb price series sale_date type --}}
                 <div class="mb-3">
                     <label for="title" class="form-label">Event_name</label>
@@ -38,6 +39,15 @@
                     <label for="image" class="form-label">Available_tickets</label>
                     <input type="number" class="form-control" id="available_tickets" name="available_tickets"
                         value="{{ old('available_tickets') ?? $event->available_tickets }}">
+                </div>
+                <div class="mb-3">
+                    <label for="tags" class="form-label">Seleziona il Tag associato</label>
+                    <select multiple name="tags[]" id="tags" class="form-select">
+                        <option value="">Seleziona almeno un Tag</option>
+                        @foreach ($tags as $tag)
+                            <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                        @endforeach
+                    </select>
                 </div>
 
                 <div class="mb-3">

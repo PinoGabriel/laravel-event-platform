@@ -19,6 +19,7 @@ class EventSeeder extends Seeder
     {
         for ($i = 0; $i < 5; $i++) {
             $newEvent = new Event();
+            $newEvent->user_id = $faker->numberBetween(1, 5);
             $newEvent->event_name = $faker->name();
             $newEvent->date = $faker->date();
             $newEvent->available_tickets = $faker->randomNumber(4, false);

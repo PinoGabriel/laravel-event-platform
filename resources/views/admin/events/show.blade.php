@@ -12,11 +12,9 @@
             <p>{{ $event->available_tickets }}</p>
 
             @if (count($event->tags) > 0)
-                <ul>
-                    @foreach ($event->tags as $tag)
-                        <li>#{{ $tag->name }}</li>
-                    @endforeach
-                </ul>
+                @foreach ($event->tags as $tag)
+                    <p>#{{ $tag->name }}</p>
+                @endforeach
             @else
                 <p>Nessun Tag #</p>
             @endif
