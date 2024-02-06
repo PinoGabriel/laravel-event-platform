@@ -22,10 +22,16 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        $this->call([
+        $num_utenti = $this->command->ask('Quanti utenti?');
+        $num_eventi = $this->command->ask('Quanti eventi?');
+
+        $this->callWith(UserSeeder::class, compact('num_utenti'));
+        $this->callWith(EventSeeder::class, compact('num_eventi', 'num_utenti'));
+
+        /* $this->call([
             UserSeeder::class,
             EventSeeder::class,
             TagSeeder::class
-        ]);
+        ]); */
     }
 }

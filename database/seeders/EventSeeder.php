@@ -15,11 +15,11 @@ class EventSeeder extends Seeder
      *
      * @return void
      */
-    public function run(Faker $faker): void
+    public function run($num_eventi, $num_utenti, Faker $faker)
     {
-        for ($i = 0; $i < 5; $i++) {
+        for ($i = 0; $i < $num_eventi; $i++) {
             $newEvent = new Event();
-            $newEvent->user_id = $faker->numberBetween(1, 5);
+            $newEvent->user_id = $faker->numberBetween(1, $num_utenti);
             $newEvent->event_name = $faker->name();
             $newEvent->date = $faker->date();
             $newEvent->available_tickets = $faker->randomNumber(4, false);
