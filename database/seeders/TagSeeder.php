@@ -15,12 +15,12 @@ class TagSeeder extends Seeder
      */
     public function run()
     {
-        $array_tag = config("tags");
+        $tags = config("tags");
 
-        foreach ($array_tag as $tag_item) {
-            $array_tag = new Tag();
-            $array_tag->fill($tag_item);
-            $array_tag->save();
+        foreach ($tags as $tag) {
+            $NewTags = new Tag();
+            $NewTags->fill($tag);
+            $NewTags->save();
         }
     }
 }

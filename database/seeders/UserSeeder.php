@@ -9,7 +9,7 @@ use Faker\Generator as Faker;
 use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Hash;
 
-class EventSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.

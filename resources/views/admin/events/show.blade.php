@@ -10,8 +10,18 @@
         </div>
         <div class="row">
             <p>{{ $event->available_tickets }}</p>
-            {{-- <a href="{{ route('projects.edit', $project->id) }}" class="btn btn-warning">Modifica</a> --}}
-            <a href="{{ route('admin.events.index') }}" class="btn btn-primary mt-3">Torna alla sezione Eventi</a>
+
+            @if (count($event->tags) > 0)
+                <ul>
+                    @foreach ($event->tags as $tag)
+                        <li>#{{ $tag->name }}</li>
+                    @endforeach
+                </ul>
+            @else
+                <p>Nessun Tag #</p>
+            @endif
         </div>
+        <a href="{{ route('admin.events.index') }}" class="btn btn-primary mt-3">Torna alla sezione Eventi</a>
+
     </div>
 @endsection

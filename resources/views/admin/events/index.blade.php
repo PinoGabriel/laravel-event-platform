@@ -10,6 +10,13 @@
                         <div class="card-header">{{ $event->event_name }}</div>
                         <div class="card-body">Data: {{ $event->date }}</div>
                         <div class="card-body">Posti disponibili: {{ $event->available_tickets }}</div>
+                        @if (count($event->tags) > 0)
+                            @foreach ($event->tags as $tag)
+                                <div class="card-body">#{{ $tag->name }}</div>
+                            @endforeach
+                        @else
+                            <div class="card-body">Nessun Tag #</div>
+                        @endif
                         <div class="d-flex justify-content-center">
                             <a href="{{ route('admin.events.show', $event->id) }}" class="btn btn-primary mx-2 mb-2">Show
                                 details</a>

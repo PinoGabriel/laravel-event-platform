@@ -39,8 +39,9 @@ class EventController extends Controller
     public function index()
     {
         $events = Event::all();
+        $tags = Tag::all();
 
-        return view('admin.events.index', compact('events'));
+        return view('admin.events.index', compact('events', 'tags'));
     }
 
     /**
@@ -71,6 +72,11 @@ class EventController extends Controller
         $new_event->fill($dati_validati);
         $new_event->save();
 
+        if ($request->filled('tags')) {
+            $tags = array_filter($request->tags, 'is_numeric');
+            $new_event->tags()->attach($tags);
+        }
+
         return redirect()->route("admin.events.show", $new_event->id);
     }
 
@@ -82,6 +88,8 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
+        $tags = Tag::all();
+
         return view('admin.events.show', compact('event'));
     }
 
@@ -93,7 +101,7 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
-        return view("admin.events.edit", compact("event"));
+        return view("admin.events.edit", compact("event", "tags"));
     }
 
     /**
@@ -109,6 +117,11 @@ class EventController extends Controller
         $dati_validati = $this->validation($data);
         $event->update($dati_validati);
 
+        if ($request->filled("tags")) {
+            $dati_validati["tags"] = array_filter($dati_validati["tags"]) ? $dati_validati["tags"] : [];  //Livecoding con Luca
+            $event->tags()->sync($dati_validati["tags"]);
+        }
+
         return redirect()->route("admin.events.show", $event->id);
     }
 
@@ -122,6 +135,6 @@ class EventController extends Controller
     {
         $event->delete();
 
-        return redirect()->route("admin.event.index");
+        return redirect()->route("admin.events.index");
     }
 }
