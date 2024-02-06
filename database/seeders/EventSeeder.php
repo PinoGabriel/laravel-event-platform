@@ -2,8 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\Event;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Faker\Generator as Faker;
+use Faker\Guesser\Name;
 
 class EventSeeder extends Seeder
 {
@@ -12,8 +15,14 @@ class EventSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker): void
     {
-        //
+        for ($i = 0; $i < 5; $i++) {
+            $newEvent = new Event();
+            $newEvent->event_name = $faker->name();
+            $newEvent->date = $faker->date();
+            $newEvent->available_tickets = $faker->randomNumber(4, false);
+            $newEvent->save();
+        }
     }
 }

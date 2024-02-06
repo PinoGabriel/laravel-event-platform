@@ -8,8 +8,8 @@
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-header">{{ $event->event_name }}</div>
-                        <div class="card-body">{{ $event->date }}</div>
-                        <div class="card-body">{{ $event->available_tickets }}</div>
+                        <div class="card-body">Data: {{ $event->date }}</div>
+                        <div class="card-body">Posti disponibili: {{ $event->available_tickets }}</div>
                         <div class="d-flex justify-content-center">
                             <a href="{{ route('admin.events.show', $event->id) }}" class="btn btn-primary mx-2 mb-2">Show
                                 details</a>

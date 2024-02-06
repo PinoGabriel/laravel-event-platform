@@ -44,9 +44,9 @@
                     <button type="submit" class="btn btn-primary">Conferma Modifiche</button>
                 </div>
             </form>
-            div class="text-center">
-            <a href="{{ route('admin.events.index') }}" class="btn btn-warning">Torna alla sezione Progetti</a>
+            <div class="text-center">
+                <a href="{{ route('admin.events.index') }}" class="btn btn-warning">Torna alla sezione Progetti</a>
+            </div>
         </div>
-    </div>
     </div>
 @endsection

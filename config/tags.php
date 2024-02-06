@@ -2,15 +2,21 @@
 
 return [
     [
-        "name" => "Musicale",
+        "name" => "Pop",
     ],
     [
-        "name" => "Sportivo",
+        "name" => "Rock",
     ],
     [
-        "name" => "Orchestrale",
+        "name" => "Rap",
     ],
     [
-        "name" => "Comico",
+        "name" => "Lirico",
+    ],
+    [
+        "name" => "Metal",
+    ],
+    [
+        "name" => "Punk",
     ]
 ];
