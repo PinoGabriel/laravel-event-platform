@@ -10,7 +10,7 @@ class EventController extends Controller
 {
     public function index()
     {
-        $results = Event::all();
+        $results = Event::with("user")->get();
         $data = [
             'success' => true,
             'payload' => $results

@@ -20,9 +20,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/prova', function () {
+/* Route::get('/prova', function () {
     $utenti = User::all();
     return response()->json($utenti);
-});
+}); */
 
 Route::get('/events', [EventController::class, 'index']);
